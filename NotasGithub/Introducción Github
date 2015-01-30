@@ -1,0 +1,243 @@
+Repositorio de código GIIHUB (master)
+
+Clon local
+	commit
+
+1.- Múltlipes versiones del mismo código
+2.- Cambios Delta
+	Internamewnte es una base de datos atómica del códiogo 
+	Solo actualiza en el servidor los cambios realizados y no subir el archivo por completo
+3.- Historial de cada archivo 
+4.- Múltiples personas en el mismo archivo
+5.- Culpa al culpable
+6.- Ramas(Branches)
+	*master (github.com) REPO PRINCIPAL
+		*master
+			--- MARGE (fusion entre experimental-local)
+		*experimental local
+	*master (disco duro) REPO PRODUCCION
+
+Objetivo pricipal 
+	Empezar a utilizar git desde cero, para familiarizar 
+
+1.1 Intalacion
+1.2 Sistema de control de versiones
+1.3 ¿Ques git?
+1.4 Arquitectura de Árbol
+1.5 Configurar Git
+
+PROPOSITO
+
+SCV (Sistema de control de versiones)
+	A principio de los 80 desarrolladores enfrentaban problemas muy fuetes como por ejemplo empalmar trabajo al estar en un proyecto desarrollado en equipo.
+
+
+El control de versiones se puede interpretar como viajar en el tiempo con respecto a nuestro proyecto avanzar hacia atras o adelante para poder tener un historial del desarrollo del mismo.
+
+¿Que es GIT?
+	Es un software rastreador, le da seguimiento a todos los cambios que se ejecutan sobre un archivo o carpeta.
+
+	registro de cambios
+Sistema de control de versiones distribuido
+
+break: Cada persona puede realizar su clon independiente y avanzar sobre el proyecto.
+
+Terminos:
+	commit (punto donde se salvo cambios)
+	repositorio
+	clon
+
+Arquitectura de arbol GIT
+
+Las tres areas
+	Repository (repositorio)
+		Es el lugar donde se encuentra todo el historial del proyecto
+		cambios, autorias, fechas y logs.
+
+		En esta última área se imprime, registra y marca el nuevo cambio (commit)
+
+	Staging Area ( área de preparación)
+		En esta área se seleccionan los archivos que se encapsularan en el siguiete commit
+	Working Area 
+		Donde realizas cambios al proyecto, ejemplo subline o ide, git sabe que se esta editando el repositorio pero aun no los ha registrado
+
+
+Configurar GIT ( recomendacion usar la terminal)
+	git --version ( version de git)
+	git config --global  [global|user|system]
+		user.name "TuNombre" ( Tu usuario, funciona para sustituir configuracion )
+		user.email "TuEmail" ( Tu correo)
+
+		color.ui [true|false] (colores en la terminal al teclear comandos git)
+
+git init 
+	Se le indica a git que esta carpeta empezara a ser rastreada
+
+git add -A (agrega todos los archivos a stagin Area)
+
+git status ( nos muestra listado del estatus de los archvios )
+
+git commit -m "Descripción"
+
+git log listado de los commits
+
+git log > commits.txt (crear un archivo con los commits claves)
+
+git checkout clave
+
+git reset
+
+git merge experimental
+	realiza fucion con la rama experimental (fast-fusion)
+
+git branch --merged
+	comando para ver ramas que han sido fusionadas.
+git branch -d experimental
+	comando para borrar ramas una vez que ya no sean de utilidad
+
+git commit -am "descripcion"
+	atajo sube cambion a staging-area y realiza el commit en el mismo paso.
+git nicelog
+	esquematiza las ramas para visualizar su desglose
+
+git merge nombre_rama
+	presiona "o" para poder poner una descripción a la fusión
+	Esc para salir
+	Escribir :x
+
+
+git clone [ruta]
+
+git remote add origin [HTTPS or SSH]
+
+git remote -v
+
+git push origin master
+	empujar los commit a repositorio remoto
+git fetch  origin 
+	descarga los cambios en la rama escondida "origin"
+git branch -a-a
+	muestra todos los branch
+
+
+
+GitHub >> Es una comunidad que impulsa la creación de proyecto tanto de programcion como cualquier otro ambito, tambien podemos llevar un historial de las fases de desarrollo del mismo.
+	El GitHub fomenta en veneficio de ti y tus proyectos el romper limites y personas de diferentes partes puedan saber de tus conocimientos y habilidades en algun ambito.
+
+
+WORKFLOWS (FLUJOS DE TRABAJO)
+	Visualizar la web como una colaboracion de muchas personas
+	(conexion con muchas personas)
+
+	Lograr profecionales de la web trabajen en equipo sin morir en el intento
+
+
+GitHub 
+	plataforma social de creacion/colaboracion web
+
+Objetivo Principal
+	Crear un proyecto virtual en local
+	Subir nuestro y vincularlo en loca
+	Subir portafolio a nuestro repositorio fork en github
+
+Github se compone de tres areas
+	colaboracion
+	creación
+	conexion
+
+Exploracion: Git Clone
+	Objetivo: obtiene proyecto para explorar 
+		git clone [SSH]
+
+Github workflow
+	Ustedes son los dueños de su proyecto
+	Si alguien decide participar, ustedes deciden si aceptan sus propuestas
+	Crear un repositorio
+	Vincularlo con nuestra pc
+	Generar cambios y subirlos GitHub
+
+touch README.txt
+	comando de unics para crear archivos
+
+Repositorio propios (yo + mi equipo )
+	Es el mismo que el proceso anterior
+	Todos los cambios que hagan nuestros colaboradores lo subirán al repositorio
+	Es nuestra oblicación, descargar los nuevos cambios antes y despues de codificar.
+
+git remote add origin
+	agrega
+	Nos funciona como interfaz para enlazar nuestros proyecto local con uno alojado en algun servidor
+
+	origin funge como un espejo (rama) del proyecto remoto el cual se alamcena en esta rama "Escondida" para no afectar las ramas remotas.
+
+GITHUB WORKFLOWS (3)
+
+-Ustedes no son los dueños pero quieren participar en el desarrollo.
+
+-Los dueños del proyecto le dan visión (que commits si y que commits no)
+
+-Todo esto a través del concepto del pull Request(pr)u 
+Repositorios "forked"
+	-Necesitamos conectar 2 repositorios.
+
+	-Repositorio principal
+	-Repositorio fork (repositorio clon personal)
+
+	-origin
+	-upstream
+
+	dos fetch orgin/master(dos ramas escondidas)
+	fetch upstream/master
+
+git pull request 
+	lanza los commits al directorio remoto y agregado lanza un aviso al dueño de branch para integrar cambios
+
+comandos
+	git remote add [HTTPS ó SSH del proyecto "main"]
+	git fetch upstream
+	git merge origin/upstream
+	git fetch origin
+	git merge origin/master
+	git fetch upstream
+	git merge origin/upstream
+	git push origin master
+	
+
+	git fetch upstream 
+		descargara e proyecto del repositorio remoto original del cual se hizo la copia
+
+Clase 4 
+Objetivo principal 
+	-Subir nuestro portafolio a través de GitHub Pages y SSH
+
+	-Hacer un Flow de issues para trabajo en equipo.
+
+Contexto 
+	- Deployment
+	- Ambientes
+	- GitHub Pages
+	- Manual Deployment
+
+WorkFlows 
+(flujos de trabajo)
+	-Conectar proyectos propios
+	-Conectar proyectos propios con tu equipo
+	-Conectar con proyectos de terceros o bajo autorizacion de los gestores.
+
+
+
+pull request 
+	Fucniona en proponer una idea para el repositorio original y avisar 
+
+git remote
+	vincula con repositorios remotos 
+
+gh-pages
+	Buena practica
+	github se encarga de gestionar tu proyecto en en la rama gh-pages, 
+	solo hay que mantener actualizada dicha rama para poder tener los últimos ca
+	cambios en github-pages
+	Con esto ya contamos con un portafolio de nuestro proyecto
+
+
+	
